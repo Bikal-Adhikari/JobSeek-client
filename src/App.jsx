@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import SignIn from "./pages/SignIn/SignIn";
@@ -7,13 +8,13 @@ import Landing from "./pages/landingPage/Landing";
 
 function App() {
   return (
-    <div>
-      <Landing />
-      <SignIn />
-      <SignUp />
-      <ErrorPage />
-      <Dashboard />
-    </div>
+    <Routes>
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/landing" element={<Landing />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 }
 

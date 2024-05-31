@@ -1,5 +1,6 @@
 import "./App.css";
 import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
 import Landing from "./pages/landingPage/Landing";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div>
       <Landing />
       <SignIn />
+      <SignUp />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import "./App.css";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Landing from "./pages/landingPage/Landing";
@@ -9,6 +10,7 @@ function App() {
       <Landing />
       <SignIn />
       <SignUp />
+      <ErrorPage />
     </div>
   );
 }

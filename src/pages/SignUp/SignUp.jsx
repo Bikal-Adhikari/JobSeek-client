@@ -26,7 +26,7 @@ const SignUp = () => {
     });
   };
 
-  const handleOnSubmit =  async(e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     const { confirmPassword, ...rest } = form;
 
@@ -39,7 +39,6 @@ const SignUp = () => {
     });
     const { status, message } = await responsePending;
     toast[status](message);
-  };
   };
 
   const inputs = [

@@ -1,17 +1,11 @@
-const CustomInput = ({ type, name, value, onChange, labelText }) => {
+const CustomInput = ({ name, label, inputRef, ...rest }) => {
   return (
     <div className="form-row">
       <label htmlFor={name} className="form-label">
-        {labelText || name}
+        {label || name}
       </label>
 
-      <input
-        type={type}
-        value={value}
-        name={name}
-        onChange={onChange}
-        className="form-input"
-      />
+      <input name={name} {...rest} ref={inputRef} className="form-input" />
     </div>
   );
 };

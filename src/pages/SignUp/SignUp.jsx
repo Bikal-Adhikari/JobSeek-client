@@ -3,6 +3,7 @@ import Logo from "../../components/Logo";
 import Wrapper from "./signup";
 import CustomInput from "../../components/CustomInput";
 import { toast } from "react-toastify";
+import { postNewUser } from "../../features/user/userAxios";
 
 const initialState = {
   fName: "",
@@ -25,13 +26,20 @@ const SignUp = () => {
     });
   };
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit =  async(e) => {
     e.preventDefault();
     const { confirmPassword, ...rest } = form;
 
     if (confirmPassword !== rest.password) {
       return toast.error("password do not match");
     }
+    const responsePending = postNewUser(rest);
+    toast.promise(responsePending, {
+      pending: "Signing up...",
+    });
+    const { status, message } = await responsePending;
+    toast[status](message);
+  };
   };
 
   const inputs = [

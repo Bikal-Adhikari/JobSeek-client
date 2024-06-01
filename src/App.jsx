@@ -17,7 +17,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      <ToastContainer />
+      <ToastContainer position="top-center" />
     </div>
   );
 }

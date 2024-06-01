@@ -4,8 +4,17 @@ import Wrapper from "./signup";
 import CustomInput from "../../components/CustomInput";
 import { toast } from "react-toastify";
 
+const initialState = {
+  fName: "",
+  lName: "",
+  phone: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  isMember: true,
+};
 const SignUp = () => {
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState(initialState);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;

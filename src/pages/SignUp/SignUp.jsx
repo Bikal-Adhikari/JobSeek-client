@@ -12,7 +12,6 @@ const initialState = {
   email: "",
   password: "",
   confirmPassword: "",
-  isMember: true,
 };
 const SignUp = () => {
   const [form, setForm] = useState(initialState);

@@ -1,6 +1,12 @@
 import styled from "styled-components";
+import loginBg from "../../assets/images/login-bg.jpg";
 
 const Wrapper = styled.section`
+  background-image: url(${loginBg});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
   display: grid;
   align-items: center;
   .logo {
@@ -11,6 +17,10 @@ const Wrapper = styled.section`
   .form {
     max-width: 400px;
     border-top: 5px solid var(--primary-500);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   h3 {

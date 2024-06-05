@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Wrapper from "./signIn";
 import Logo from "../../components/Logo";
@@ -9,15 +9,18 @@ import { loginUser } from "../../features/user/userAxios";
 import { getUserObj } from "../../features/user/userAction";
 
 const SignIn = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const emailRef = useRef("");
   const passRef = useRef("");
   const navigate = useNavigate();
 
+  const sendTo = location?.state?.from?.location?.pathname || "/";
+
   const { user } = useSelector((state) => state.userInfo);
   useEffect(() => {
-    user?._id && navigate("/");
-  }, [user?._id, navigate]);
+    user?._id && navigate(sendTo);
+  }, [user?._id, navigate, sendTo]);
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +63,7 @@ const SignIn = () => {
     <Wrapper>
       <form className="form" onSubmit={handleOnSubmit}>
         <Logo />
-        <h3>Sign-Up</h3>
+        <h3>Sign-In</h3>
         {inputs.map((input, index) => (
           <CustomInput key={index} {...input} />
         ))}

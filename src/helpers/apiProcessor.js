@@ -53,7 +53,7 @@ export const apiProcessor = async ({
   }
 };
 
-const renewAccessJWT = async () => {
+export const renewAccessJWT = async () => {
   const { accessJWT } = await apiProcessor({
     method: "get",
     url: userEP,

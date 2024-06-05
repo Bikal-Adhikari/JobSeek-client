@@ -1,7 +1,7 @@
-import React from "react";
+import { UserLayout } from "../../components/layout/UserLayout";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return <UserLayout pageTitle="Dashboard"></UserLayout>;
 };
 
 export default Dashboard;

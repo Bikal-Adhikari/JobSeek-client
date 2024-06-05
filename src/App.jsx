@@ -6,8 +6,15 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Landing from "./pages/landingPage/Landing";
 import { ToastContainer } from "react-toastify";
 import SignUp from "./pages/SignUp/SignUp.jsx";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { autoLogin } from "./features/user/userAction.js";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(autoLogin());
+  }, [dispatch]);
   return (
     <div>
       <Routes>

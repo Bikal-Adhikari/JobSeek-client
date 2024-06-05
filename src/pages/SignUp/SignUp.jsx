@@ -4,6 +4,7 @@ import Wrapper from "./signup";
 import CustomInput from "../../components/CustomInput";
 import { toast } from "react-toastify";
 import { postNewUser } from "../../features/user/userAxios";
+import { Navigate } from "react-router-dom";
 
 const initialState = {
   fName: "",
@@ -38,6 +39,9 @@ const SignUp = () => {
     });
     const { status, message } = await responsePending;
     toast[status](message);
+    if (status === "success") {
+      <Navigate to="/sign-in" />;
+    }
   };
 
   const inputs = [

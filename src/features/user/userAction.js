@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { fetchUserInfo, loginUser } from "./userAxios";
 import { setUser } from "./userSlice";
-import { renewAccessJWT } from "../../helpers/apiProcessor";
+import { renewAccessJWT } from "../../helpers/axiosHelper";
 
 export const getUserObj = () => async (dispatch) => {
   const { status, user } = await fetchUserInfo();

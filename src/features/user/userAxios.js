@@ -1,4 +1,4 @@
-import { apiProcessor } from "../../helpers/apiProcessor";
+import { apiProcessor } from "../../helpers/axiosHelper";
 
 const serverURL = import.meta.env.VITE_APP_ROOT_SERVER;
 const userEP = serverURL + "/api/v1/users";

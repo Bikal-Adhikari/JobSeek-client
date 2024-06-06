@@ -12,6 +12,7 @@ export const loginUser = async (obj) => {
   return apiProcessor(axiosObj);
 };
 export const postNewUser = async (obj) => {
+  console.log(obj);
   const axiosObj = {
     method: "post",
     url: userEP,

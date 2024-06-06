@@ -5,8 +5,8 @@ import Wrapper from "./signIn";
 import Logo from "../../components/Logo";
 import CustomInput from "../../components/CustomInput";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../features/user/userAxios";
-import { getUserObj } from "../../features/user/userAction";
+
+import { signInUser } from "../../features/user/userAction";
 
 const SignIn = () => {
   const location = useLocation();
@@ -30,15 +30,8 @@ const SignIn = () => {
     if (!email || !password) {
       return toast.error("Both field must be filled");
     }
-    const { status, message, tokens } = await loginUser({ email, password });
-    toast[status](message);
-    //store token in the sessions
-    sessionStorage.setItem("accessJWT", tokens.accessJWT);
-    localStorage.setItem("refreshJWT", tokens.refreshJWT);
 
-    if (status === "success") {
-      dispatch(getUserObj());
-    }
+    dispatch(signInUser({ email, password }));
   };
 
   const inputs = [

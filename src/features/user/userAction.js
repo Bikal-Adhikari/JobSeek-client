@@ -14,6 +14,7 @@ export const getUserObj = () => async (dispatch) => {
 export const signInUser =
   ({ email, password }) =>
   async (dispatch) => {
+    console.log({ email, password });
     const pending = loginUser({ email, password });
     toast.promise(pending, {
       pending: "Please wait...",

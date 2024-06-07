@@ -16,14 +16,13 @@ export const UserLayout = ({ children, pageTitle }) => {
           <SmallSidebar />
           <BigSidebar />
           <div>
-            <Navbar />
+            <Navbar pageTitle={pageTitle} />
           </div>
           <div className="dashboard-page">
             <Outlet />
             {children}
           </div>
         </main>
-        <div className="p-2">{pageTitle}</div>
       </Wrapper>
       <Footer />
     </AuthRoute>

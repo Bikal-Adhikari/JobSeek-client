@@ -8,6 +8,7 @@ import Logo from "../Logo";
 
 const Navbar = ({ pageTitle }) => {
   const { user } = useSelector((state) => state.userInfo);
+
   const dispatch = useDispatch();
   return (
     <Wrapper>
@@ -30,7 +31,7 @@ const Navbar = ({ pageTitle }) => {
             onClick={() => console.log("toggle logout dropdown")}
           >
             <FaUserCircle />
-            {user?.name}
+            {user?.fName}
             <FaCaretDown />
           </button>
           <div className="dropdown show-dropdown">

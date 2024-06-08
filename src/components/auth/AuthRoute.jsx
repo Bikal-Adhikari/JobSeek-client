@@ -9,7 +9,7 @@ export const AuthRoute = ({ children }) => {
     children
   ) : (
     <Navigate
-      to="/signin"
+      to="/landing"
       state={{
         from: {
           location,

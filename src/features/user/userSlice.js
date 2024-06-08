@@ -14,11 +14,17 @@ const userSlice = createSlice({
     toggleSidebar: (state) => {
       state.isSidebarOpen = !state.isSidebarOpen;
     },
+    logoutUser: (state) => {
+      state.user = {};
+      state.isSidebarOpen = false;
+      localStorage.removeItem("refreshJWT");
+      sessionStorage.removeItem("accessJWT");
+    },
   },
 });
 
 const { reducer, actions } = userSlice;
 
-export const { setUser, toggleSidebar } = actions;
+export const { setUser, toggleSidebar, logoutUser } = actions;
 
 export default reducer;

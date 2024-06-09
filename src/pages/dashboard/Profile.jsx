@@ -16,8 +16,8 @@ const Profile = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { _id, fName, email, lName, location } = userData;
-
+    const { fName, email, lName, location } = userData;
+    console.log(userData);
     if (!fName || !email || !lName || !location) {
       toast.error("Please Fill Out All Fields");
       return;
@@ -25,7 +25,7 @@ const Profile = () => {
     if (
       window.confirm("Are you sure you want to make changes to your profile")
     ) {
-      dispatch(editUserAction(_id, fName, email, lName, location));
+      dispatch(editUserAction(fName, email, lName, location));
     }
   };
   const handleChange = (e) => {

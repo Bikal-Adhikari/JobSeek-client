@@ -35,5 +35,5 @@ export const editUserInfo = async (obj) => {
     isPrivate: true,
     data: obj,
   };
-  return apiProcessor(axiosObj);
+  return await apiProcessor(axiosObj);
 };

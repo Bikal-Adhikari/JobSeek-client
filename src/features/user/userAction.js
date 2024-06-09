@@ -49,14 +49,15 @@ export const autoLogin = () => async (dispatch) => {
 };
 
 // edit user profile
-export const editUserAction = (obj) => async (dispatch) => {
-  const pending = await editUserInfo(obj);
-  toast.promise(pending, {
-    pending: "Please wait...",
-  });
-  const { status, message } = pending;
-  toast[status](message);
-  if (status === "success") {
-    dispatch(getUserObj());
-  }
-};
+export const editUserAction =
+  (fName, email, lName, location) => async (dispatch) => {
+    const pending = await editUserInfo({ fName, email, lName, location });
+    toast.promise(pending, {
+      pending: "Please wait...",
+    });
+    const { status, message } = pending;
+    toast[status](message);
+    if (status === "success") {
+      dispatch(getUserObj());
+    }
+  };

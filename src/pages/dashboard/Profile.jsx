@@ -68,8 +68,8 @@ const Profile = () => {
             <CustomInput key={i} {...input} onChange={handleChange} />
           ))}
 
-          <button className="btn btn-block" type="submit" disabled={isLoading}>
-            {isLoading ? "Please Wait..." : "save changes"}
+          <button className="btn btn-block" type="submit">
+            Update Profile
           </button>
         </div>
       </form>

@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { fetchUserInfo, loginUser } from "./userAxios";
+import { editUserInfo, fetchUserInfo, loginUser } from "./userAxios";
 import { setUser } from "./userSlice";
 import { renewAccessJWT } from "../../helpers/axiosHelper";
 
@@ -45,5 +45,18 @@ export const autoLogin = () => async (dispatch) => {
   if (refreshJWT) {
     const token = await renewAccessJWT();
     token && dispatch(getUserObj());
+  }
+};
+
+// edit user profile
+export const editUserAction = (obj) => async (dispatch) => {
+  const pending = await editUserInfo(obj);
+  toast.promise(pending, {
+    pending: "Please wait...",
+  });
+  const { status, message } = pending;
+  toast[status](message);
+  if (status === "success") {
+    dispatch(getUserObj());
   }
 };

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Wrapper from "./DashboardFormPage";
 import CustomInput from "../../components/CustomInput";
+import { editUserAction } from "../../features/user/userAction";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.userInfo);
@@ -15,11 +16,16 @@ const Profile = () => {
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { fName, email, lName, location } = userData;
+    const { _id, fName, email, lName, location } = userData;
 
     if (!fName || !email || !lName || !location) {
       toast.error("Please Fill Out All Fields");
       return;
+    }
+    if (
+      window.confirm("Are you sure you want to make changes to your profile")
+    ) {
+      dispatch(editUserAction(_id, fName, email, lName, location));
     }
   };
   const handleChange = (e) => {
@@ -65,7 +71,12 @@ const Profile = () => {
 
         <div className="form-center">
           {inputs.map((input, i) => (
-            <CustomInput key={i} {...input} onChange={handleChange} />
+            <CustomInput
+              key={i}
+              {...input}
+              onChange={handleChange}
+              value={userData[input.name]}
+            />
           ))}
 
           <button className="btn btn-block" type="submit">

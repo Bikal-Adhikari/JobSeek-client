@@ -28,3 +28,12 @@ export const fetchUserInfo = async () => {
   };
   return apiProcessor(axiosObj);
 };
+export const editUserInfo = async (obj) => {
+  const axiosObj = {
+    method: "put",
+    url: userEP,
+    isPrivate: true,
+    data: obj,
+  };
+  return apiProcessor(axiosObj);
+};
